@@ -1,39 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <% try { %>
-    <%- include('../partials/head') %>
-  <% } catch(e) { %>
-    <%- include('/opt/render/project/src/views/partials/head') %>
-  <% } %>
-  <body>
-    <div class="wrapper">
-      <header>
-        <% try { %>
-          <%- include('../partials/header') %>
-        <% } catch(e) { %>
-          <%- include('/opt/render/project/src/views/partials/header') %>
-        <% } %>
-      </header>
-
-      <nav>
-        <% try { %>
-          <%- include('../partials/nav') %>
-        <% } catch(e) { %>
-          <%- include('/opt/render/project/src/views/partials/nav') %>
-        <% } %>
-      </nav>
-
-      <main>
-        <%- body %>
-      </main>
-
-      <footer>
-        <% try { %>
-          <%- include('../partials/footer') %>
-        <% } catch(e) { %>
-          <%- include('/opt/render/project/src/views/partials/footer') %>
-        <% } %>
-      </footer>
-    </div>
-  </body>
+<%- include('../partials/head') %>
+<body>
+  <div id="wrapper">
+    <%- include('../partials/header') %>
+    <%- include('../partials/nav') %>
+    <main>
+      <%- body %>
+    </main>
+    <%- include('../partials/footer') %>
+  </div>
+</body>
 </html>
