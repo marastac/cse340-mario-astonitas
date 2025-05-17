@@ -15,7 +15,7 @@ const app = express()
 /****************************
  * View Engine and Layout
  ****************************/
-app.set("views", path.join(__dirname, "views")) // 👈 Línea clave para Render
+app.set("views", path.join(__dirname, "views")) // 👈 Correcto para Render
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout")
@@ -48,4 +48,3 @@ const host = process.env.HOST || "localhost"
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
-// Forzar deploy en Render
