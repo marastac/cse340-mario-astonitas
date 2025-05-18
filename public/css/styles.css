@@ -4,3 +4,222 @@
 *:after {
   box-sizing: border-box;
 }
+
+/******* GENERAL STYLES *******/
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+#wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: white;
+}
+
+/******* HEADER STYLES *******/
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.siteName a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+#tools a {
+  text-decoration: none;
+  color: #000;
+  font-weight: normal;
+}
+
+/******* NAVIGATION STYLES *******/
+nav {
+  background-color: #3a3a3a;
+  padding: 0.5rem 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 0 15px;
+  color: white;
+  cursor: pointer;
+}
+
+nav li:first-child {
+  margin-left: 0.5rem;
+}
+
+/******* MAIN CONTENT STYLES *******/
+main {
+  padding: 0 0.5rem;
+}
+
+/* Hero section */
+.hero-container {
+  position: relative;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  color: #4c96d7;
+  background-color: rgba(255, 255, 255, 0.8);
+  max-width: 200px;
+}
+
+.hero-content h2 {
+  color: #4c96d7;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content ul {
+  padding-left: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+.action-button {
+  display: inline-block;
+  background-color: #4c96d7;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+/* Home grid sections */
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.upgrades, .reviews {
+  padding: 1rem;
+  background-color: white;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.upgrade-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.upgrade-image-container {
+  background-color: #4c96d7;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade-image-container img {
+  width: 100%;
+  height: auto;
+  max-height: 75px;
+  object-fit: contain;
+}
+
+.upgrade-item a {
+  color: #00f;
+  text-decoration: none;
+}
+
+.reviews ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.reviews li {
+  margin-bottom: 0.5rem;
+}
+
+/******* FOOTER STYLES *******/
+footer {
+  padding: 1rem 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/******* RESPONSIVE STYLES *******/
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  #wrapper {
+    border: 5px solid #4c96d7;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-image: url('/images/site/checkerboard.jpg');
+    background-size: contain;
+    padding: 0.5rem;
+  }
+
+  #top-header, nav, main, footer {
+    background-color: white;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .hero-content {
+    font-size: 1rem;
+    max-width: 250px;
+  }
+
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .upgrade-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
