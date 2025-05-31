@@ -56,27 +56,62 @@ h2 {
 
 /******* NAVIGATION STYLES *******/
 nav {
-  background-color: #3a3a3a;
-  padding: 0.5rem 0;
+  background-color: #3a3a3a !important;  /* Dark gray background FORCED */
+  padding: 1rem 0 !important;             /* Larger padding FORCED */
+  width: 100% !important;                 /* Full width FORCED */
+  display: block !important;              /* Block display FORCED */
+  visibility: visible !important;         /* Visibility FORCED */
+  opacity: 1 !important;                  /* Full opacity FORCED */
+  height: auto !important;                /* Auto height FORCED */
+  overflow: visible !important;           /* Visible overflow FORCED */
+  margin: 0 !important;                   /* No margin FORCED */
+  position: relative !important;          /* Relative position FORCED */
+  z-index: 1000 !important;               /* High z-index FORCED */
 }
 
 nav ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  display: flex !important;               /* Flex display FORCED */
+  list-style: none !important;            /* No bullets FORCED */
+  padding: 0 !important;                  /* No padding FORCED */
+  margin: 0 !important;                   /* No margin FORCED */
+  align-items: center !important;         /* Vertical center FORCED */
+  visibility: visible !important;         /* Visibility FORCED */
+  opacity: 1 !important;                  /* Opacity FORCED */
+  height: auto !important;                /* Auto height FORCED */
 }
 
 nav li {
-  margin: 0 15px;
-  color: white;
-  cursor: pointer;
+  margin: 0 15px !important;              /* Margin FORCED */
+  display: inline-block !important;       /* Inline-block display FORCED */
+  visibility: visible !important;         /* Visibility FORCED */
+  opacity: 1 !important;                  /* Opacity FORCED */
 }
 
 nav li:first-child {
-  margin-left: 0.5rem;
+  margin-left: 0.5rem !important;         /* First element margin FORCED */
 }
 
+/* Links ALWAYS visible */
+nav a {
+  color: white !important;                /* White text FORCED */
+  text-decoration: none !important;       /* No underline FORCED */
+  padding: 0.5rem 1rem !important;        /* Padding FORCED */
+  display: inline-block !important;       /* Display FORCED */
+  font-weight: normal !important;         /* Normal weight FORCED */
+  visibility: visible !important;         /* Visibility FORCED */
+  opacity: 1 !important;                  /* Opacity FORCED */
+  background-color: transparent !important; /* Transparent background FORCED */
+}
+
+nav a:visited {
+  color: white !important;                /* White for visited links FORCED */
+}
+
+nav a:hover {
+  background-color: #555 !important;      /* Light gray hover FORCED */
+  border-radius: 3px !important;          /* Rounded corners FORCED */
+  color: white !important;                /* Keep white FORCED */
+}
 /******* MAIN CONTENT STYLES *******/
 main {
   padding: 0 0.5rem;
