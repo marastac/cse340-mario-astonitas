@@ -1,5 +1,6 @@
 const { Pool } = require("pg")
 require("dotenv").config()
+
 /* ***************
  * Connection Pool
  * SSL Object needed for local testing of app
@@ -19,19 +20,6 @@ if (process.env.NODE_ENV == "development") {
     connectionString: process.env.DATABASE_URL,
   })
 }
-module.exports = pool
 
-// Added for troubleshooting queries
-// during development
-module.exports = {
-  async query(text, params) {
-    try {
-      const res = await pool.query(text, params)
-      console.log("executed query", { text })
-      return res
-    } catch (error) {
-      console.error("error in query", { text })
-      throw error
-    }
-  },
-}
+// Export the pool directly
+module.exports = pool
