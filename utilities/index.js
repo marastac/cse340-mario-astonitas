@@ -74,9 +74,56 @@ Util.buildVehicleDetailHTML = async function(data){
         <p><strong>Description:</strong> ${data.inv_description}</p>
         <p><strong>Color:</strong> ${data.inv_color}</p>
         <p><strong>Miles:</strong> ${new Intl.NumberFormat('en-US').format(data.inv_miles)}</p>
+        
+        <!-- Add to Favorites Form -->
+        <div class="favorite-actions">
+          <form action="/favorites/add" method="post" class="favorite-form">
+            <input type="hidden" name="inv_id" value="${data.inv_id}">
+            <button type="submit" class="favorite-btn">
+              <span class="heart-icon">♥</span> Add to Favorites
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   `
+  return grid
+}
+
+/* **************************************
+* Build the favorites grid HTML
+* ************************************ */
+Util.buildFavoritesGrid = async function(data){
+  let grid
+  if(data && data.length > 0){
+    grid = '<ul id="favorites-display" class="favorites-grid">'
+    data.forEach(vehicle => { 
+      grid += '<li class="favorite-item">'
+      grid +=  '<a href="/inv/detail/'+ vehicle.inv_id 
+      + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
+      + ' details"><img src="' + vehicle.inv_thumbnail 
+      +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
+      +' on CSE Motors" /></a>'
+      grid += '<div class="favorite-info">'
+      grid += '<h3>'
+      grid += '<a href="/inv/detail/' + vehicle.inv_id +'" title="View ' 
+      + vehicle.inv_make + ' ' + vehicle.inv_model + ' details">' 
+      + vehicle.inv_make + ' ' + vehicle.inv_model + '</a>'
+      grid += '</h3>'
+      grid += '<p class="price">$' 
+      + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</p>'
+      grid += '<p class="classification">' + vehicle.classification_name + '</p>'
+      grid += '<div class="favorite-actions">'
+      grid += '<a href="/favorites/remove/' + vehicle.inv_id + '" class="remove-favorite" '
+      grid += 'onclick="return confirm(\'Remove this vehicle from favorites?\')">Remove</a>'
+      grid += '</div>'
+      grid += '</div>'
+      grid += '</li>'
+    })
+    grid += '</ul>'
+  } else { 
+    grid = '<p class="notice">You have no favorite vehicles yet.</p>'
+  }
   return grid
 }
 

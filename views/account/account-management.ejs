@@ -15,6 +15,7 @@
   
   <p>You're logged in.</p>
   <p><a href="/account/update/<%= accountData.account_id %>">Edit Account Information</a></p>
+  <p><a href="/favorites/">My Favorites</a></p>
   
   <% if (accountData.account_type == 'Employee' || accountData.account_type == 'Admin') { %>
     <h2>Inventory Management</h2>

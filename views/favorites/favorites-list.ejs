@@ -1,0 +1,20 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else { 
+  res.redirect('/')
+} %>
+
+<%- messages() %>
+
+<% if (favorites && favorites.length > 0) { %>
+  <p>You have <%= favorites.length %> vehicle<%= favorites.length === 1 ? '' : 's' %> in your favorites.</p>
+  
+  <%- grid %>
+  
+<% } else { %>
+  <div class="no-favorites">
+    <h2>No Favorites Yet</h2>
+    <p>You haven't added any vehicles to your favorites list.</p>
+    <p><a href="/" class="browse-link">Browse our inventory</a> to find vehicles you love!</p>
+  </div>
+<% } %>

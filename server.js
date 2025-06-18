@@ -9,6 +9,7 @@ const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute")
 const accountRoute = require("./routes/accountRoute")
+const favoritesRoute = require("./routes/favoritesRoute")
 const utilities = require("./utilities/")
 const session = require("express-session")
 const pool = require('./database/')
@@ -75,6 +76,9 @@ app.use("/inv", inventoryRoute)
 
 // Account routes
 app.use("/account", accountRoute)
+
+// Favorites routes (Enhancement)
+app.use("/favorites", favoritesRoute)
 
 /****************************
  * File Not Found Route - must be last route in list
