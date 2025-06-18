@@ -54,6 +54,41 @@ h2 {
   font-weight: normal;
 }
 
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.siteName a {
+  font-size: 1.8rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+#tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#tools span {
+  color: #000;
+  font-weight: normal;
+}
+
+#tools a {
+  text-decoration: none;
+  color: #000;
+  font-weight: normal;
+}
+
+#tools a:hover {
+  text-decoration: underline;
+}
+
 /******* NAVIGATION STYLES *******/
 nav {
   background-color: #3a3a3a !important;  /* Dark gray background FORCED */

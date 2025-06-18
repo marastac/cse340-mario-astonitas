@@ -12,13 +12,22 @@ router.get("/type/:classificationId", invController.buildByClassificationId)
 router.get("/detail/:invId", invController.buildByInventoryId)
 
 // Route to build inventory management view
-router.get("/", utilities.handleErrors(invController.buildManagement))
+router.get("/", utilities.checkAccountType, utilities.handleErrors(invController.buildManagement))
 
 // Route to build add classification view
-router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification))
+router.get("/add-classification", utilities.checkAccountType, utilities.handleErrors(invController.buildAddClassification))
 
 // Route to build add inventory view
-router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory))
+router.get("/add-inventory", utilities.checkAccountType, utilities.handleErrors(invController.buildAddInventory))
+
+// Route to build edit inventory view
+router.get("/edit/:inv_id", utilities.checkAccountType, utilities.handleErrors(invController.editInventoryView))
+
+// Route to build delete confirmation view
+router.get("/delete/:inv_id", utilities.checkAccountType, utilities.handleErrors(invController.deleteView))
+
+// Route to get inventory by classification_id as JSON
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
 // Process the add classification
 router.post(
@@ -35,6 +44,16 @@ router.post(
   invValidate.checkInventoryData,
   utilities.handleErrors(invController.addInventory)
 )
+
+// Process the update inventory
+router.post("/update/", 
+  invValidate.inventoryRules(),
+  invValidate.checkUpdateData,
+  utilities.handleErrors(invController.updateInventory)
+)
+
+// Process the delete inventory
+router.post("/delete/", utilities.handleErrors(invController.deleteInventory))
 
 // Intentional error route for testing
 router.get("/trigger-error",(req, res, next) => {

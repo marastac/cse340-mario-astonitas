@@ -1,0 +1,46 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else { 
+  res.redirect('/')
+} %>
+
+<%- messages() %>
+
+<form id="addInventoryForm" action="/inv/delete" method="post">
+  <fieldset>
+    <legend>Confirm Deletion - The deletion is permanent.</legend>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="inv_make">Make:</label>
+        <input type="text" id="inv_make" name="inv_make" 
+               value="<%= locals.inv_make %>" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label for="inv_model">Model:</label>
+        <input type="text" id="inv_model" name="inv_model" 
+               value="<%= locals.inv_model %>" readonly>
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group">
+        <label for="inv_price">Price:</label>
+        <input type="number" id="inv_price" name="inv_price" 
+               value="<%= locals.inv_price %>" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label for="inv_year">Year:</label>
+        <input type="number" id="inv_year" name="inv_year" 
+               value="<%= locals.inv_year %>" readonly>
+      </div>
+    </div>
+    
+    <!-- Hidden field for inventory ID -->
+    <input type="hidden" name="inv_id" value="<%= locals.inv_id %>">
+    
+    <input type="submit" value="Delete Item">
+  </fieldset>
+</form>
